@@ -1,0 +1,9 @@
+{
+	"name": "Data-Ingestion-and-orchestration",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2bdc8789-8d8f-463d-b7ee-6332e74df8ea",
+		"tenantId": "7e6cf2a2-2529-4795-ada4-3a52bcab522e"
+	}
+}
