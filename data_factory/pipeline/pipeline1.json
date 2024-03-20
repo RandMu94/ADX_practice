@@ -336,7 +336,10 @@
 				"inputs": [
 					{
 						"referenceName": "RestResource1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"q": "london"
+						}
 					}
 				],
 				"outputs": [
