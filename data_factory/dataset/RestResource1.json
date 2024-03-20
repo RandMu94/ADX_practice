@@ -15,7 +15,7 @@
 		"type": "RestResource",
 		"typeProperties": {
 			"relativeUrl": {
-				"value": "@/current.json?key=f1b2b98f9b644605be7123705241903& dataset().q",
+				"value": "@concat('/current.json?key=f1b2b98f9b644605be7123705241903&',dataset().q)",
 				"type": "Expression"
 			}
 		},
