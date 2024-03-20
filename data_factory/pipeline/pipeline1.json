@@ -26,7 +26,7 @@
 					},
 					"sink": {
 						"type": "AzureDataExplorerSink",
-						"ingestionMappingName": "'WeatherDataMappingJSON'"
+						"ingestionMappingName": "WeatherDataMappingJSON"
 					},
 					"enableStaging": false,
 					"translator": {
@@ -329,7 +329,8 @@
 									"type": "Double"
 								}
 							}
-						]
+						],
+						"mapComplexValuesToString": false
 					}
 				},
 				"inputs": [
