@@ -5,11 +5,7 @@
 		"type": "AzureDataExplorer",
 		"typeProperties": {
 			"endpoint": "https://codingexc.westeurope.kusto.windows.net",
-			"database": "weather_data",
-			"credential": {
-				"referenceName": "credential2",
-				"type": "CredentialReference"
-			}
+			"database": "weather_data"
 		}
 	}
 }
