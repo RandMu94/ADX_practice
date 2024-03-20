@@ -1,0 +1,11 @@
+{
+	"name": "AzureDataExplorer3",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDataExplorer",
+		"typeProperties": {
+			"endpoint": "https://codingexc.westeurope.kusto.windows.net",
+			"database": "weather_data"
+		}
+	}
+}
