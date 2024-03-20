@@ -1,6 +1,12 @@
 {
 	"name": "RestService1",
 	"properties": {
+		"parameters": {
+			"q": {
+				"type": "string",
+				"defaultValue": "london"
+			}
+		},
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
