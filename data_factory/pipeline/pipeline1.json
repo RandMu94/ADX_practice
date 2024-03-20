@@ -347,6 +347,33 @@
 				]
 			}
 		],
+		"parameters": {
+			"location": {
+				"type": "array",
+				"defaultValue": [
+					"london",
+					"birmingham",
+					"glasgow",
+					"liverpool",
+					"bristol",
+					"manchester",
+					"sheffield",
+					"leeds",
+					"edinburgh",
+					"leicester",
+					"coventry",
+					"bradford",
+					"cardiff",
+					"belfast",
+					"nottingham",
+					"hull",
+					"newcastle",
+					"stoke",
+					"southampton",
+					"derby"
+				]
+			}
+		},
 		"annotations": []
 	}
 }
