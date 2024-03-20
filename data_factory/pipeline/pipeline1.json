@@ -348,6 +348,371 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.location",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Copy data1_copy1",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "RestSource",
+									"httpRequestTimeout": "00:01:40",
+									"requestInterval": "00.00:00:00.010",
+									"requestMethod": "GET",
+									"paginationRules": {
+										"supportRFC5988": "true"
+									}
+								},
+								"sink": {
+									"type": "AzureDataExplorerSink",
+									"ingestionMappingName": ""
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"mappings": [
+										{
+											"source": {
+												"path": "$['location']['name']"
+											},
+											"sink": {
+												"name": "Location_Name",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"path": "$['location']['region']"
+											},
+											"sink": {
+												"name": "Location_Region",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"path": "$['location']['country']"
+											},
+											"sink": {
+												"name": "Location_Country",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"path": "$['location']['lat']"
+											},
+											"sink": {
+												"name": "Location_Lat",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['location']['lon']"
+											},
+											"sink": {
+												"name": "Location_Lon",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['location']['tz_id']"
+											},
+											"sink": {
+												"name": "Location_Tz_Id",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"path": "$['location']['localtime_epoch']"
+											},
+											"sink": {
+												"name": "Location_Localtime_Epoch",
+												"type": "Int64"
+											}
+										},
+										{
+											"source": {
+												"path": "$['location']['localtime']"
+											},
+											"sink": {
+												"name": "Location_Localtime",
+												"type": "DateTime"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['last_updated_epoch']"
+											},
+											"sink": {
+												"name": "Current_Last_Updated_Epoch",
+												"type": "Int64"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['last_updated']"
+											},
+											"sink": {
+												"name": "Current_Last_Updated",
+												"type": "DateTime"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['temp_c']"
+											},
+											"sink": {
+												"name": "Current_Temp_C",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['temp_f']"
+											},
+											"sink": {
+												"name": "Current_Temp_F",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['is_day']"
+											},
+											"sink": {
+												"name": "Current_Is_Day",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['condition']['text']"
+											},
+											"sink": {
+												"name": "Current_Condition_Text",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['condition']['icon']"
+											},
+											"sink": {
+												"name": "Current_Condition_Icon",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['condition']['code']"
+											},
+											"sink": {
+												"name": "Current_Condition_Code",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['wind_mph']"
+											},
+											"sink": {
+												"name": "Current_Wind_Mph",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['wind_kph']"
+											},
+											"sink": {
+												"name": "Current_Wind_Kph",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['wind_degree']"
+											},
+											"sink": {
+												"name": "Current_Wind_Degree",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['wind_dir']"
+											},
+											"sink": {
+												"name": "Current_Wind_Dir",
+												"type": "String"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['pressure_mb']"
+											},
+											"sink": {
+												"name": "Current_Pressure_Mb",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['pressure_in']"
+											},
+											"sink": {
+												"name": "Current_Pressure_In",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['precip_mm']"
+											},
+											"sink": {
+												"name": "Current_Precip_Mm",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['precip_in']"
+											},
+											"sink": {
+												"name": "Current_Precip_In",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['humidity']"
+											},
+											"sink": {
+												"name": "Current_Humidity",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['cloud']"
+											},
+											"sink": {
+												"name": "Current_Cloud",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['feelslike_c']"
+											},
+											"sink": {
+												"name": "Current_Feelslike_C",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['feelslike_f']"
+											},
+											"sink": {
+												"name": "Current_Feelslike_F",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['vis_km']"
+											},
+											"sink": {
+												"name": "Current_Vis_Km",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['vis_miles']"
+											},
+											"sink": {
+												"name": "Current_Vis_Miles",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['uv']"
+											},
+											"sink": {
+												"name": "Current_Uv",
+												"type": "Int32"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['gust_mph']"
+											},
+											"sink": {
+												"name": "Current_Gust_Mph",
+												"type": "Double"
+											}
+										},
+										{
+											"source": {
+												"path": "$['current']['gust_kph']"
+											},
+											"sink": {
+												"name": "Current_Gust_Kph",
+												"type": "Double"
+											}
+										}
+									],
+									"mapComplexValuesToString": false
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "RestResource1",
+									"type": "DatasetReference",
+									"parameters": {
+										"q": {
+											"value": "@item()",
+											"type": "Expression"
+										}
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "AzureDataExplorerTable2",
+									"type": "DatasetReference"
+								}
+							]
+						}
+					]
+				}
 			}
 		],
 		"parameters": {
