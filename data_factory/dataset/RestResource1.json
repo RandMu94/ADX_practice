@@ -8,6 +8,16 @@
 				"q": "london"
 			}
 		},
+		"parameters": {
+			"key": {
+				"type": "string",
+				"defaultValue": "key=f1b2b98f9b644605be7123705241903&q=london"
+			},
+			"q": {
+				"type": "string",
+				"defaultValue": "london"
+			}
+		},
 		"annotations": [],
 		"type": "RestResource",
 		"typeProperties": {
