@@ -90,7 +90,7 @@
 			}
 		],
 		"typeProperties": {
-			"table": "weather2"
+			"table": "weather3"
 		}
 	}
 }
