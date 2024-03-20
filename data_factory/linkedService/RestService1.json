@@ -10,7 +10,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://api.weatherapi.com/v1/current.json?key=f1b2b98f9b644605be7123705241903&",
+			"url": "https://api.weatherapi.com/v1",
 			"enableServerCertificateValidation": false,
 			"authenticationType": "Anonymous"
 		}
