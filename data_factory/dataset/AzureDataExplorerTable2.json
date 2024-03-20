@@ -139,38 +139,6 @@
 			{
 				"name": "Current_Gust_Kph",
 				"type": "real"
-			},
-			{
-				"name": "Air_Quality_CO",
-				"type": "real"
-			},
-			{
-				"name": "Air_Quality_NO2",
-				"type": "real"
-			},
-			{
-				"name": "Air_Quality_O3",
-				"type": "real"
-			},
-			{
-				"name": "Air_Quality_SO2",
-				"type": "real"
-			},
-			{
-				"name": "Air_Quality_PM2_5",
-				"type": "real"
-			},
-			{
-				"name": "Air_Quality_PM10",
-				"type": "real"
-			},
-			{
-				"name": "Air_Quality_US_EPA_Index",
-				"type": "int"
-			},
-			{
-				"name": "Air_Quality_GB_DEFRA_Index",
-				"type": "int"
 			}
 		],
 		"typeProperties": {
