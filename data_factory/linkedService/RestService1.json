@@ -1,19 +1,23 @@
 {
 	"name": "RestService1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
-		"parameters": {
-			"q": {
-				"type": "string",
-				"defaultValue": "london"
-			}
-		},
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
 			"url": "https://api.weatherapi.com",
 			"enableServerCertificateValidation": false,
-			"authenticationType": "Anonymous"
+			"authenticationType": "Anonymous",
+			"authHeaders": {
+				"APIKey": {
+					"type": "SecureString",
+					"value": "**********"
+				},
+				"q": {
+					"type": "SecureString",
+					"value": "**********"
+				}
+			}
 		}
-	},
-	"type": "Microsoft.DataFactory/factories/linkedservices"
+	}
 }
