@@ -11,7 +11,7 @@
 		"annotations": [],
 		"type": "RestResource",
 		"typeProperties": {
-			"relativeUrl": "/v1/current.json?key=f1b2b98f9b644605be7123705241903"
+			"relativeUrl": "/v1/current.json?key=f1b2b98f9b644605be7123705241903&q=london"
 		},
 		"schema": []
 	}
