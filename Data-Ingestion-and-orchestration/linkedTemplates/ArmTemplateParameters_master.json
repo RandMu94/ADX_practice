@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Data-Ingestion-and-orchestration"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://api.weatherapi.com/v1/current.json"
+		},
+		"AzureDataExplorer1_properties_typeProperties_endpoint": {
+			"value": "https://codingexc.westeurope.kusto.windows.net"
+		},
+		"AzureDataExplorer1_properties_typeProperties_database": {
+			"value": "weather_data"
+		},
+		"AzureDataExplorer2_properties_typeProperties_endpoint": {
+			"value": "https://codingexc.westeurope.kusto.windows.net"
+		},
+		"AzureDataExplorer2_properties_typeProperties_database": {
+			"value": "weather_data"
+		},
+		"AzureDataExplorer3_properties_typeProperties_endpoint": {
+			"value": "https://codingexc.westeurope.kusto.windows.net"
+		},
+		"AzureDataExplorer3_properties_typeProperties_database": {
+			"value": "weather_data"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

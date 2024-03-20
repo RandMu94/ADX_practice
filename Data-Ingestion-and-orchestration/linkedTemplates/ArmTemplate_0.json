@@ -1,0 +1,267 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Data-Ingestion-and-orchestration"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://api.weatherapi.com/v1/current.json"
+		},
+		"AzureDataExplorer2_properties_typeProperties_endpoint": {
+			"type": "string",
+			"defaultValue": "https://codingexc.westeurope.kusto.windows.net"
+		},
+		"AzureDataExplorer2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "weather_data"
+		},
+		"AzureDataExplorer3_properties_typeProperties_endpoint": {
+			"type": "string",
+			"defaultValue": "https://codingexc.westeurope.kusto.windows.net"
+		},
+		"AzureDataExplorer3_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "weather_data"
+		},
+		"AzureDataExplorer1_properties_typeProperties_endpoint": {
+			"type": "string",
+			"defaultValue": "https://codingexc.westeurope.kusto.windows.net"
+		},
+		"AzureDataExplorer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "weather_data"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/RestService1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"parameters": {
+					"key": {
+						"type": "string",
+						"defaultValue": "f1b2b98f9b644605be7123705241903"
+					},
+					"q": {
+						"type": "string",
+						"defaultValue": "london"
+					}
+				},
+				"annotations": [],
+				"type": "RestService",
+				"typeProperties": {
+					"url": "[parameters('RestService1_properties_typeProperties_url')]",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/credential1')]",
+			"type": "Microsoft.DataFactory/factories/credentials",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "ManagedIdentity",
+				"typeProperties": {
+					"resourceId": "/subscriptions/93f31fc6-dc66-4aba-8cbf-ae5aefdc95f4/resourceGroups/Practice_project_ADX_railway_weather_data/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ADF-to-ADX"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/credential2')]",
+			"type": "Microsoft.DataFactory/factories/credentials",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "ManagedIdentity",
+				"typeProperties": {
+					"resourceId": "/subscriptions/93f31fc6-dc66-4aba-8cbf-ae5aefdc95f4/resourceGroups/Practice_project_ADX_railway_weather_data/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ADF-to-ADX"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataExplorer2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDataExplorer",
+				"typeProperties": {
+					"endpoint": "[parameters('AzureDataExplorer2_properties_typeProperties_endpoint')]",
+					"database": "[parameters('AzureDataExplorer2_properties_typeProperties_database')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataExplorer3')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDataExplorer",
+				"typeProperties": {
+					"endpoint": "[parameters('AzureDataExplorer3_properties_typeProperties_endpoint')]",
+					"database": "[parameters('AzureDataExplorer3_properties_typeProperties_database')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/RestResource1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "RestService1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "RestResource",
+				"typeProperties": {},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/RestService1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataExplorer1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDataExplorer",
+				"typeProperties": {
+					"endpoint": "[parameters('AzureDataExplorer1_properties_typeProperties_endpoint')]",
+					"database": "[parameters('AzureDataExplorer1_properties_typeProperties_database')]",
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/credentials/credential1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataExplorerTable2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataExplorer3",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureDataExplorerTable",
+				"schema": [
+					{
+						"name": "state",
+						"type": "string"
+					},
+					{
+						"name": "datum",
+						"type": "datetime"
+					}
+				],
+				"typeProperties": {
+					"table": "weather"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataExplorer3')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "RestSource",
+								"httpRequestTimeout": "00:01:40",
+								"requestInterval": "00.00:00:00.010",
+								"requestMethod": "GET",
+								"paginationRules": {
+									"supportRFC5988": "true"
+								}
+							},
+							"sink": {
+								"type": "AzureDataExplorerSink"
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "RestResource1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "AzureDataExplorerTable2",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/RestResource1')]",
+				"[concat(variables('factoryId'), '/datasets/AzureDataExplorerTable2')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDataExplorerTable1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataExplorer1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureDataExplorerTable",
+				"schema": [],
+				"typeProperties": {
+					"table": "weather"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataExplorer1')]"
+			]
+		}
+	]
+}

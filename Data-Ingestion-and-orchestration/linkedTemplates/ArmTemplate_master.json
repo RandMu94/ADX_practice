@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Data-Ingestion-and-orchestration"
+		},
+		"RestService1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://api.weatherapi.com/v1/current.json"
+		},
+		"AzureDataExplorer1_properties_typeProperties_endpoint": {
+			"type": "string",
+			"defaultValue": "https://codingexc.westeurope.kusto.windows.net"
+		},
+		"AzureDataExplorer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "weather_data"
+		},
+		"AzureDataExplorer2_properties_typeProperties_endpoint": {
+			"type": "string",
+			"defaultValue": "https://codingexc.westeurope.kusto.windows.net"
+		},
+		"AzureDataExplorer2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "weather_data"
+		},
+		"AzureDataExplorer3_properties_typeProperties_endpoint": {
+			"type": "string",
+			"defaultValue": "https://codingexc.westeurope.kusto.windows.net"
+		},
+		"AzureDataExplorer3_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "weather_data"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "Data-Ingestion-and-orchestration_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"AzureDataExplorer2_properties_typeProperties_endpoint": {
+						"value": "[parameters('AzureDataExplorer2_properties_typeProperties_endpoint')]"
+					},
+					"AzureDataExplorer2_properties_typeProperties_database": {
+						"value": "[parameters('AzureDataExplorer2_properties_typeProperties_database')]"
+					},
+					"AzureDataExplorer3_properties_typeProperties_endpoint": {
+						"value": "[parameters('AzureDataExplorer3_properties_typeProperties_endpoint')]"
+					},
+					"AzureDataExplorer3_properties_typeProperties_database": {
+						"value": "[parameters('AzureDataExplorer3_properties_typeProperties_database')]"
+					},
+					"AzureDataExplorer1_properties_typeProperties_endpoint": {
+						"value": "[parameters('AzureDataExplorer1_properties_typeProperties_endpoint')]"
+					},
+					"AzureDataExplorer1_properties_typeProperties_database": {
+						"value": "[parameters('AzureDataExplorer1_properties_typeProperties_database')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
