@@ -11,7 +11,7 @@
 		"annotations": [],
 		"type": "RestResource",
 		"typeProperties": {
-			"relativeUrl": "v1/current.json"
+			"relativeUrl": "/current.json"
 		},
 		"schema": []
 	}
