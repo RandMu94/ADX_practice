@@ -11,7 +11,7 @@
 		"parameters": {
 			"key": {
 				"type": "string",
-				"defaultValue": "key=f1b2b98f9b644605be7123705241903&q=london"
+				"defaultValue": "f1b2b98f9b644605be7123705241903"
 			},
 			"q": {
 				"type": "string",
