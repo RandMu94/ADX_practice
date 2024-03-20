@@ -28,7 +28,177 @@
 						"type": "AzureDataExplorerSink",
 						"ingestionMappingName": "'WeatherDataMappingJSON'"
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['location']['name']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['location']['region']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['location']['country']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['location']['lat']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['location']['lon']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['location']['tz_id']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['location']['localtime_epoch']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['location']['localtime']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['last_updated_epoch']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['last_updated']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['temp_c']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['temp_f']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['is_day']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['condition']['text']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['condition']['icon']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['condition']['code']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['wind_mph']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['wind_kph']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['wind_degree']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['wind_dir']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['pressure_mb']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['pressure_in']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['precip_mm']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['precip_in']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['humidity']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['cloud']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['feelslike_c']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['feelslike_f']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['vis_km']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['vis_miles']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['uv']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['gust_mph']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['current']['gust_kph']"
+								}
+							}
+						]
+					}
 				},
 				"inputs": [
 					{
