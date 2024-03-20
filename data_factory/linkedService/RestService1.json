@@ -1,6 +1,5 @@
 {
 	"name": "RestService1",
-	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"parameters": {
 			"q": {
@@ -11,15 +10,10 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://api.weatherapi.com/v1/current.json",
+			"url": "https://api.weatherapi.com/v1",
 			"enableServerCertificateValidation": false,
-			"authenticationType": "Anonymous",
-			"authHeaders": {
-				"key": {
-					"type": "SecureString",
-					"value": "**********"
-				}
-			}
+			"authenticationType": "Anonymous"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/linkedservices"
 }
