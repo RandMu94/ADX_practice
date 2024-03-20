@@ -9,16 +9,88 @@
 		"type": "AzureDataExplorerTable",
 		"schema": [
 			{
-				"name": "state",
+				"name": "Location",
+				"type": "dynamic"
+			},
+			{
+				"name": "Current",
+				"type": "dynamic"
+			},
+			{
+				"name": "wind_mph",
+				"type": "real"
+			},
+			{
+				"name": "wind_kph",
+				"type": "real"
+			},
+			{
+				"name": "wind_degree",
+				"type": "int"
+			},
+			{
+				"name": "wind_dir",
 				"type": "string"
 			},
 			{
-				"name": "datum",
-				"type": "datetime"
+				"name": "pressure_mb",
+				"type": "real"
+			},
+			{
+				"name": "pressure_in",
+				"type": "real"
+			},
+			{
+				"name": "precip_mm",
+				"type": "real"
+			},
+			{
+				"name": "precip_in",
+				"type": "real"
+			},
+			{
+				"name": "humidity",
+				"type": "int"
+			},
+			{
+				"name": "cloud",
+				"type": "int"
+			},
+			{
+				"name": "feelslike_c",
+				"type": "real"
+			},
+			{
+				"name": "feelslike_f",
+				"type": "real"
+			},
+			{
+				"name": "vis_km",
+				"type": "real"
+			},
+			{
+				"name": "vis_miles",
+				"type": "real"
+			},
+			{
+				"name": "uv",
+				"type": "real"
+			},
+			{
+				"name": "gust_mph",
+				"type": "real"
+			},
+			{
+				"name": "gust_kph",
+				"type": "real"
+			},
+			{
+				"name": "air_quality",
+				"type": "dynamic"
 			}
 		],
 		"typeProperties": {
-			"table": "weather"
+			"table": "weather2"
 		}
 	}
 }
