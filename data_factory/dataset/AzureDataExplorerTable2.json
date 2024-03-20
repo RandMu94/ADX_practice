@@ -9,88 +9,172 @@
 		"type": "AzureDataExplorerTable",
 		"schema": [
 			{
-				"name": "Location",
-				"type": "dynamic"
-			},
-			{
-				"name": "Current",
-				"type": "dynamic"
-			},
-			{
-				"name": "wind_mph",
-				"type": "real"
-			},
-			{
-				"name": "wind_kph",
-				"type": "real"
-			},
-			{
-				"name": "wind_degree",
-				"type": "int"
-			},
-			{
-				"name": "wind_dir",
+				"name": "Location_Name",
 				"type": "string"
 			},
 			{
-				"name": "pressure_mb",
+				"name": "Location_Region",
+				"type": "string"
+			},
+			{
+				"name": "Location_Country",
+				"type": "string"
+			},
+			{
+				"name": "Location_Lat",
 				"type": "real"
 			},
 			{
-				"name": "pressure_in",
+				"name": "Location_Lon",
 				"type": "real"
 			},
 			{
-				"name": "precip_mm",
+				"name": "Location_Tz_Id",
+				"type": "string"
+			},
+			{
+				"name": "Location_Localtime_Epoch",
+				"type": "long"
+			},
+			{
+				"name": "Location_Localtime",
+				"type": "datetime"
+			},
+			{
+				"name": "Current_Last_Updated_Epoch",
+				"type": "long"
+			},
+			{
+				"name": "Current_Last_Updated",
+				"type": "datetime"
+			},
+			{
+				"name": "Current_Temp_C",
 				"type": "real"
 			},
 			{
-				"name": "precip_in",
+				"name": "Current_Temp_F",
 				"type": "real"
 			},
 			{
-				"name": "humidity",
+				"name": "Current_Is_Day",
 				"type": "int"
 			},
 			{
-				"name": "cloud",
+				"name": "Current_Condition_Text",
+				"type": "string"
+			},
+			{
+				"name": "Current_Condition_Icon",
+				"type": "string"
+			},
+			{
+				"name": "Current_Condition_Code",
 				"type": "int"
 			},
 			{
-				"name": "feelslike_c",
+				"name": "Current_Wind_Mph",
 				"type": "real"
 			},
 			{
-				"name": "feelslike_f",
+				"name": "Current_Wind_Kph",
 				"type": "real"
 			},
 			{
-				"name": "vis_km",
+				"name": "Current_Wind_Degree",
+				"type": "int"
+			},
+			{
+				"name": "Current_Wind_Dir",
+				"type": "string"
+			},
+			{
+				"name": "Current_Pressure_Mb",
 				"type": "real"
 			},
 			{
-				"name": "vis_miles",
+				"name": "Current_Pressure_In",
 				"type": "real"
 			},
 			{
-				"name": "uv",
+				"name": "Current_Precip_Mm",
 				"type": "real"
 			},
 			{
-				"name": "gust_mph",
+				"name": "Current_Precip_In",
 				"type": "real"
 			},
 			{
-				"name": "gust_kph",
+				"name": "Current_Humidity",
+				"type": "int"
+			},
+			{
+				"name": "Current_Cloud",
+				"type": "int"
+			},
+			{
+				"name": "Current_Feelslike_C",
 				"type": "real"
 			},
 			{
-				"name": "air_quality",
-				"type": "dynamic"
+				"name": "Current_Feelslike_F",
+				"type": "real"
+			},
+			{
+				"name": "Current_Vis_Km",
+				"type": "real"
+			},
+			{
+				"name": "Current_Vis_Miles",
+				"type": "real"
+			},
+			{
+				"name": "Current_Uv",
+				"type": "int"
+			},
+			{
+				"name": "Current_Gust_Mph",
+				"type": "real"
+			},
+			{
+				"name": "Current_Gust_Kph",
+				"type": "real"
+			},
+			{
+				"name": "Air_Quality_CO",
+				"type": "real"
+			},
+			{
+				"name": "Air_Quality_NO2",
+				"type": "real"
+			},
+			{
+				"name": "Air_Quality_O3",
+				"type": "real"
+			},
+			{
+				"name": "Air_Quality_SO2",
+				"type": "real"
+			},
+			{
+				"name": "Air_Quality_PM2_5",
+				"type": "real"
+			},
+			{
+				"name": "Air_Quality_PM10",
+				"type": "real"
+			},
+			{
+				"name": "Air_Quality_US_EPA_Index",
+				"type": "int"
+			},
+			{
+				"name": "Air_Quality_GB_DEFRA_Index",
+				"type": "int"
 			}
 		],
 		"typeProperties": {
-			"table": "weather3"
+			"table": "weather4"
 		}
 	}
 }
