@@ -226,7 +226,7 @@
 									"path": "$['current']['pressure_in']"
 								},
 								"sink": {
-									"name": "Current_Precip_In",
+									"name": "Current_Pressure_In",
 									"type": "Double"
 								}
 							},
